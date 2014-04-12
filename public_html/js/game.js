@@ -42,7 +42,7 @@ var game = {
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
                 // Add player to the entity pool
-                me.entityPool.add("player", game.PlayerEntity); // put an obj (game.playerentity)into the entpool and associate with tag "player"
+                me.entityPool.add("player", game.PlayreEntity); // put an obj (game.playerentity)into the entpool and associate with tag "player"
                 me.entityPool.add("slime", game.SlimeEntity);
                 // Bind the Keys
                 me.input.bindKey(me.input.KEY.RIGHT,"right"); // binds right key to the STRING right
@@ -50,6 +50,7 @@ var game = {
                 me.input.bindKey(me.input.KEY.UP,"up");
                 me.input.bindKey(me.input.KEY.J,"j");
                 me.input.bindKey(me.input.KEY.K,"k");
+                me.input.bindKey(me.input.KEY.SPACE,"space");
             // Start the game.
 		me.state.change(me.state.PLAY);
 	}
