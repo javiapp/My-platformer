@@ -55,6 +55,7 @@ game.SlimeEntity = me.ObjectEntity.extend({
         this.parent(x,y,settings);
         
         this.setVelocity(5,20);
+        me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
     },    
     
     update: function(){
@@ -96,6 +97,7 @@ game.LevelTrigger=me.ObjectEntity.extend({
     
     onCollision:function(){//rather than update, thsi executes when there's a collision
     this.collidable = false; // once collided set future collidabilyt to false
-    me.levelDirector.loadLevel(this.level);//calls the variable stored above in the init function this.level=settings.level
+    me.levelDirector.loadLevel.defer(this.level);//calls the variable stored above in the init function this.level=settings.level
+    me.state.current().reestPlayer().defer;//defer waits for previous thing to (loadlevel)finish loading before this thing (players)
     }
 }); 
